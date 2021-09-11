@@ -3,7 +3,6 @@ import {
     View,
     Text,
     TextInput,
-    TouchableOpacity,
     Vibration,
     Pressable,
     Keyboard,
@@ -18,8 +17,8 @@ import Slider from '@react-native-community/slider';
 
 export default function Banco() {
 
-    const [nome, setNome] = useState(null);
-    const [idade, setIdade] = useState(null);
+    const [nome, setNome] = useState('');
+    const [idade, setIdade] = useState('');
     const [selectedValue, setSelectedValue] = useState("Masculino");
     const [limite, setLimite] = useState(1000);
     const [resetForm, setResetForm] = useState(0);
@@ -36,10 +35,11 @@ export default function Banco() {
 
     function abrirConta() {
         if (nome && idade && limite > 0) {
-            alert('CADASTRO:\nNome: ' + nome + '\nIdade: ' + idade + '\Genero: ' + selectedValue + '\nLimite: ' + limite + '\nEstudante: ' + isEstudante);
+            alert('CADASTRO:\nNome: ' + nome + '\nIdade: ' + idade + '\nGenero: ' + selectedValue + '\nLimite: ' + limite + '\nEstudante: ' + isEstudante);
         }
         else {
             setResetForm(1)
+            Vibration.vibrate(200);
             alert('ERROR:\nFavor preencher todos os campos!!!');
         }
         setResetForm(1);
@@ -63,16 +63,18 @@ export default function Banco() {
                 <TextInput
                     style={styles.input}
                     onChangeText={(nome) => setNome(nome)}
-                    values=''
+                    values={nome}
                     placeholder="Digite o Nome do titular"
+                    onSubmitEditing={Keyboard.dismiss}
                 />
                 <Text style={styles.formLabel}>Idade: </Text>
                 <TextInput
                     style={styles.input}
                     onChangeText={(idade) => setIdade(idade)}
-                    values=''
+                    values={idade}
                     placeholder="Digite sua idade"
                     keyboardType='numeric'
+                    onSubmitEditing={Keyboard.dismiss}
                 />
                 <Text style={styles.formLabel}>Gênero:</Text>
                 <Picker
