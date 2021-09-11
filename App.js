@@ -11,6 +11,7 @@ export default function App() {
       <Form />
     </View>
   );
+
 }
 
 const styles = StyleSheet.create({
