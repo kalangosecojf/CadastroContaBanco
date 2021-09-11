@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
     View,
     Text,
@@ -22,23 +22,28 @@ export default function Banco() {
     const [idade, setIdade] = useState(null);
     const [selectedValue, setSelectedValue] = useState("Masculino");
     const [limite, setLimite] = useState(1000);
+    const [resetForm, setResetForm] = useState(0);
     const [isEstudante, setIsEstudante] = useState(false);
     const toggleSwitch = () => setIsEstudante(previousState => !previousState);
 
-    /*
-        useEffect(() => {
+    useEffect(() => {
+        if (resetForm == 1) {
+            setResetForm(0)
             resetarFormulario();
-        });
-    */
+        }
+    });
+
 
     function abrirConta() {
         if (nome && idade && limite > 0) {
             alert('CADASTRO:\nNome: ' + nome + '\nIdade: ' + idade + '\Genero: ' + selectedValue + '\nLimite: ' + limite + '\nEstudante: ' + isEstudante);
         }
         else {
+            setResetForm(1)
             alert('ERROR:\nFavor preencher todos os campos!!!');
         }
-        resetarFormulario();
+        setResetForm(1);
+
     }
 
     function resetarFormulario() {
@@ -57,14 +62,14 @@ export default function Banco() {
                 <Text style={styles.formLabel}>Nome: </Text>
                 <TextInput
                     style={styles.input}
-                    onChangeText={(nome)}
+                    onChangeText={(nome) => setNome(nome)}
                     values=''
                     placeholder="Digite o Nome do titular"
                 />
                 <Text style={styles.formLabel}>Idade: </Text>
                 <TextInput
                     style={styles.input}
-                    onChangeText={(idade)}
+                    onChangeText={(idade) => setIdade(idade)}
                     values=''
                     placeholder="Digite sua idade"
                     keyboardType='numeric'
