@@ -1,21 +1,19 @@
 import React from 'react';
-import { Button } from 'react-native-paper';
+//import { Button } from 'react-native-paper';
 import {
     Text,
     TouchableOpacity,
 } from "react-native"
-import styles from "./Form/style"
-import stylesColor from "color"
+import styles from "./style"
 
 
-
-const MyButton = ({ title, color, action }) => {
+const MyButton = ({ title, styleButton, statyText, action }) => {
     return (
         <TouchableOpacity
-            style={styles.buttonAbrirConta, { color }}
+            style={styleButton}
             onPress={action}
         >
-            <Text style={styles.textButtonAbrirConta, { color }}>{title}</Text>
+            <Text style={statyText}>{title}</Text>
         </TouchableOpacity >
     );
 }

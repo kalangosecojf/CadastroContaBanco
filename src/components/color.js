@@ -1,27 +1,14 @@
-import { StyleSheet } from "react-native";
-
-const styles = StyleSheet.create({
-    colorFormContext: {
-        backgroundColor: "#ffffff",
+export const colors = {
+    basic: {
+        red: '#f00',
+        green: '#080',
+        blue: '#00f',
+        black: '#000',
+        white: '#fff',
     },
-    colorFormLabel: {
-        color: "#000000",
+    dark: {
+        red: '#8b0000',
+        green: '#006400',
+        blue: '#00008b',
     },
-    colorInput: {
-        backgroundColor: "#f6f6f6",
-    },
-    colorButtonAbrirConta: {
-        backgroundColor: "#FF0043",
-    },
-    colorTextButtonAbrirConta: {
-        color: "#ffffff",
-    },
-    colorButtonResetar: {
-        backgroundColor: "blue",
-    },
-    colorTextButtonResetar: {
-        color: "#ffffff",
-    },
-})
-
-export default stylesColor
+}
