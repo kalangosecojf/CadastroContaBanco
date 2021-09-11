@@ -27,6 +27,14 @@ const styles = StyleSheet.create({
         margin: 12,
         paddingLeft: 10,
     },
+    formPicker: {
+        width: "90%",
+        borderRadius: 50,
+        backgroundColor: "#f6f6f6",
+        height: 40,
+        margin: 12,
+        paddingLeft: 10,
+    },
     buttonAbrirConta: {
         borderRadius: 50,
         alignItems: "center",
